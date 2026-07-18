@@ -88,7 +88,16 @@
         }
       }
     },
+    "App Language" : {
+
+    },
+    "Appearance" : {
+
+    },
     "Browse Photo Library" : {
+
+    },
+    "Business Branding" : {
 
     },
     "Camera scanning is not supported on this device or permission is denied." : {
@@ -98,6 +107,9 @@
 
     },
     "Change Image" : {
+
+    },
+    "Change Logo Image" : {
 
     },
     "Choose Image Source" : {
@@ -142,6 +154,9 @@
           }
         }
       }
+    },
+    "Dark Mode" : {
+
     },
     "Date added:%@" : {
 
@@ -208,6 +223,7 @@
 
     },
     "Hello, World!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -216,6 +232,9 @@
           }
         }
       }
+    },
+    "https://myportal.com" : {
+
     },
     "If there is a way to generate an extra $3800 dollar at month, would you be interested?" : {
       "localizations" : {
@@ -226,6 +245,9 @@
           }
         }
       }
+    },
+    "Invalid Format" : {
+
     },
     "Last Name" : {
       "extractionState" : "manual",
@@ -265,6 +287,9 @@
       }
     },
     "No Image Selected" : {
+
+    },
+    "No Logo Uploaded" : {
 
     },
     "No Map Data" : {
@@ -313,6 +338,9 @@
       }
     },
     "Plan" : {
+
+    },
+    "Portal Link Configuration" : {
 
     },
     "PostCode" : {
@@ -364,6 +392,9 @@
         }
       }
     },
+    "Remove Logo" : {
+
+    },
     "Save" : {
       "localizations" : {
         "es" : {
@@ -377,6 +408,9 @@
     "Save Product" : {
 
     },
+    "Scan this image to navigate directly to your assigned setup portal." : {
+
+    },
     "Select an item" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -388,6 +422,9 @@
         }
       }
     },
+    "Select Logo Image" : {
+
+    },
     "Select Status" : {
       "localizations" : {
         "es" : {
@@ -397,6 +434,9 @@
           }
         }
       }
+    },
+    "Settings" : {
+
     },
     "Start Scanning" : {
 
@@ -456,6 +496,12 @@
       }
     },
     "Use My Current Location" : {
+
+    },
+    "Wecome to Day Prospecting" : {
+
+    },
+    "Your Portal QR Code" : {
 
     },
     "Zip" : {
