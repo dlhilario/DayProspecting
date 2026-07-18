@@ -88,7 +88,16 @@
         }
       }
     },
+    "App Language" : {
+
+    },
+    "Appearance" : {
+
+    },
     "Browse Photo Library" : {
+
+    },
+    "Business Branding" : {
 
     },
     "Camera scanning is not supported on this device or permission is denied." : {
@@ -98,6 +107,9 @@
 
     },
     "Change Image" : {
+
+    },
+    "Change Logo Image" : {
 
     },
     "Choose Image Source" : {
@@ -142,6 +154,9 @@
           }
         }
       }
+    },
+    "Dark Mode" : {
+
     },
     "Date added:%@" : {
 
@@ -207,15 +222,8 @@
     "Followup" : {
 
     },
-    "Hello, World!" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hola Mundo"
-          }
-        }
-      }
+    "https://myportal.com" : {
+
     },
     "If there is a way to generate an extra $3800 dollar at month, would you be interested?" : {
       "localizations" : {
@@ -226,6 +234,9 @@
           }
         }
       }
+    },
+    "Invalid Format" : {
+
     },
     "Last Name" : {
       "extractionState" : "manual",
@@ -264,7 +275,16 @@
         }
       }
     },
+    "My Biz" : {
+
+    },
+    "My Shop" : {
+
+    },
     "No Image Selected" : {
+
+    },
+    "No Logo Uploaded" : {
 
     },
     "No Map Data" : {
@@ -313,6 +333,9 @@
       }
     },
     "Plan" : {
+
+    },
+    "Portal Link Configuration" : {
 
     },
     "PostCode" : {
@@ -364,6 +387,9 @@
         }
       }
     },
+    "Remove Logo" : {
+
+    },
     "Save" : {
       "localizations" : {
         "es" : {
@@ -377,16 +403,31 @@
     "Save Product" : {
 
     },
+    "Scan this image to navigate directly to your assigned setup portal." : {
+
+    },
+    "Search prospects..." : {
+
+    },
     "Select an item" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
-        "es" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Select an Item"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "Selection "
           }
         }
       }
+    },
+    "Select Logo Image" : {
+
     },
     "Select Status" : {
       "localizations" : {
@@ -397,6 +438,9 @@
           }
         }
       }
+    },
+    "Settings" : {
+
     },
     "Start Scanning" : {
 
@@ -456,6 +500,15 @@
       }
     },
     "Use My Current Location" : {
+
+    },
+    "Version 1.0.0.0" : {
+
+    },
+    "Wecome to Day Prospecting" : {
+
+    },
+    "Your Portal QR Code" : {
 
     },
     "Zip" : {

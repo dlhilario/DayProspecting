@@ -50,7 +50,9 @@ struct ProspectDashboardView: View {
                     .mapControls {
                         MapUserLocationButton()
                         MapCompass()
+                        MapUserLocationButton()
                     }
+                    .tint(Color(.label))
                 }
             }
             .navigationTitle("Prospect Dashboard")
@@ -76,7 +78,7 @@ struct ProspectDashboardView: View {
                                 systemImage: "person.text.rectangle.fill",
                                 coordinate: pin.coordinate
             )
-            .tint(getMarkerColor(for: pin.contact.decision!))
+            .tint(getMarkerColor(for: pin.contact.decision ?? .NoResponse))
             //Critical step: assign a unique identifiable tag to match your selection state
             .tag(pin.contact)
                
@@ -168,4 +170,39 @@ struct ProspectDashboardView: View {
         }
     }
 
+}
+
+
+// MARK: - Safe Compiled Preview Setup
+#Preview {
+    // 💡 FIX 2: Create a functional context container layout mock environment
+    let container = try! ModelContainer(
+        for: ContactAddress.self,
+        configurations: ModelConfiguration(isStoredInMemoryOnly: true)
+    )
+    
+    let mockContact = ContactAddress(
+        firstName: "Domingo",
+        lastName: "Hilario",
+        communityName: "Downtown",
+        number: "1600",
+        street: "Pennsylvania Avenue NW",
+        postCode: "20500",
+        city: "Washington",
+        state: "DC",
+        phoneNumber: "555-0199",
+        residenceName: "White House",
+        notes: "Test prospect location pin validation rules.",
+        appartmentNumber: "Apt 1",
+        list: false,
+        contact: false,
+        plan: false,
+        followup: false
+    )
+    
+    container.mainContext.insert(mockContact)
+    
+    // 💡 FIX 3: Instantiated ProspectDashboardView directly instead of the structural item row model
+    return ProspectDashboardView()
+        .modelContainer(container)
 }

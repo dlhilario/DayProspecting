@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import SwiftData
 
 struct ProspectMapView: View {
     
@@ -69,6 +70,42 @@ struct ProspectMapView: View {
             }
         }
     }
+}
+
+
+#Preview {
+    // 1. Create an isolated in-memory model container for the canvas preview
+    let container = try! ModelContainer(
+        for: ContactAddress.self,
+        configurations: ModelConfiguration(isStoredInMemoryOnly: true)
+    )
+    
+    // 2. Instantiate a mock customer contact address object with realistic preview details
+    let mockContact = ContactAddress(
+        firstName: "Domingo",
+        lastName: "Hilario",
+        communityName: "Downtown",
+        number: "1600",
+        street: "Pennsylvania Avenue NW",
+        postCode: "20500",
+        city: "Washington",
+        state: "DC",
+        phoneNumber: "555-0199",
+        residenceName: "White House",
+        notes: "Test prospect location pin validation rules.",
+        appartmentNumber: "Apt 1",
+        list: false,
+        contact: false,
+        plan: false,
+        followup: false
+    )
+    
+    // 3. Insert the mock contact object directly into our active canvas memory store
+    container.mainContext.insert(mockContact)
+    
+    // 4. Return the view with the mapped contact item and model container attached
+    return ProspectMapView(contact: mockContact)
+        .modelContainer(container)
 }
 
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Survey: View {
     var body: some View {
-        NavigationView{
+        NavigationStack{
             VStack{
                 List{
                     ExtractedView(_text: "Do you think we are in a contry of oportunities?")

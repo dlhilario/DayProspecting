@@ -64,7 +64,7 @@ struct ListaDeProductos: View {
         .navigationTitle("\(prospect.firstName)'s Products")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showAddProductSheet) {
-           NavigationView {
+           NavigationStack {
                 AddProductView(
                     productToEdit: ProductDetail.emptyProductDetail,
                     prospect: prospect
