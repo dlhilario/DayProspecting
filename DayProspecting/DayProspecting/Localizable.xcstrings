@@ -265,6 +265,9 @@
     "Locating..." : {
 
     },
+    "Logo" : {
+
+    },
     "Map" : {
       "localizations" : {
         "es" : {
@@ -387,6 +390,9 @@
         }
       }
     },
+    "Prospects" : {
+
+    },
     "Remove Logo" : {
 
     },
@@ -505,7 +511,7 @@
     "Version 1.0.0.0" : {
 
     },
-    "Wecome to Day Prospecting" : {
+    "Welcome to Day Prospecting" : {
 
     },
     "Your Portal QR Code" : {
