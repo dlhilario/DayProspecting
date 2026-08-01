@@ -18,11 +18,25 @@ import SwiftUI
 struct ListaDeProductos: View {
     @Environment(\.modelContext) private var modelContext
     let prospect: ContactAddress
-    @Query private var products: [ProductDetail]
+    @Query(sort: \ProductDetail.CreatedDate, order: .forward)  private var products: [ProductDetail]
 
     @State private var selectedProduct: ProductDetail? = nil
     @State private var showAddProductSheet = false
 
+    @State private var searchText = ""
+
+    private var filteredProducts: [ProductDetail] {
+        if searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return products
+        } else {
+            return products.filter { product in
+                product.name.localizedCaseInsensitiveContains(searchText)
+                || product.code.localizedCaseInsensitiveContains(searchText)
+                || product.CreatedDate.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
+    
     init(prospect: ContactAddress) {
         self.prospect = prospect
         
@@ -51,13 +65,15 @@ struct ListaDeProductos: View {
             } else {
                 NavigationStack {
                     List {
-                        ForEach(products) { product in
+                        ForEach(filteredProducts) { product in
                             Button(action: { selectedProduct = product }) {
                                 productRow(for: product) // 💡 FIX 1: Extracted into its own sub-expression
                             }
                         }
                         .onDelete(perform: deleteProduct)
+                        
                     }
+                    .searchable(text: $searchText, placement:.navigationBarDrawer(displayMode: .always))
                 }
             }
         }
