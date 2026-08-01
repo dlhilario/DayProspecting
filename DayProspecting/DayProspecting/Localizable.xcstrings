@@ -1,0 +1,563 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@, %@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@ %3$@"
+          }
+        }
+      }
+    },
+    "%@'s Products" : {
+
+    },
+    "$" : {
+
+    },
+    "Accounting Values" : {
+
+    },
+    "Action" : {
+
+    },
+    "Add Contact" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agregar Contacto"
+          }
+        }
+      }
+    },
+    "Add Image" : {
+
+    },
+    "Add Product" : {
+
+    },
+    "Add Product for %@" : {
+
+    },
+    "Add prospects with valid addresses to see them pinned here." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agrega prospectos con direcciones válidas para verlos fijados aquí."
+          }
+        }
+      }
+    },
+    "Address" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direccion"
+          }
+        }
+      }
+    },
+    "Address Details" : {
+
+    },
+    "Address Not Found" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Encontramos la Direccion"
+          }
+        }
+      }
+    },
+    "App Language" : {
+
+    },
+    "Appearance" : {
+
+    },
+    "Browse Photo Library" : {
+
+    },
+    "Business Branding" : {
+
+    },
+    "Camera scanning is not supported on this device or permission is denied." : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Change Image" : {
+
+    },
+    "Change Logo Image" : {
+
+    },
+    "Choose Image Source" : {
+
+    },
+    "CICLO DE GESTIÓN" : {
+
+    },
+    "City" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ciudad"
+          }
+        }
+      }
+    },
+    "Contact" : {
+
+    },
+    "Contact INFO" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informe De Contacto"
+          }
+        }
+      }
+    },
+    "Contacted on: %@" : {
+
+    },
+    "Could not geocode address: %@" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo geocodificar la dirección: %@"
+          }
+        }
+      }
+    },
+    "County" : {
+
+    },
+    "County Tax" : {
+
+    },
+    "Dark Mode" : {
+
+    },
+    "Date added:%@" : {
+
+    },
+    "Decision" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Decision"
+          }
+        }
+      }
+    },
+    "Do you think that base on the oportunities this country offers we get in a confort zone?" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cree usted basado en las oportunidades que este país ofrece, entramos en una zona de conformismo?"
+          }
+        }
+      }
+    },
+    "Do you think we are in a contry of oportunities?" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cee usted que estamos en un país de oportunidades?"
+          }
+        }
+      }
+    },
+    "Earnings" : {
+
+    },
+    "Edit Product for %@" : {
+
+    },
+    "Enter internal records, payment agreements, or milestones..." : {
+
+    },
+    "Enter or locate your address" : {
+
+    },
+    "First Name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primer Nombre"
+          }
+        }
+      }
+    },
+    "FirstName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primer Nombre"
+          }
+        }
+      }
+    },
+    "Followup" : {
+
+    },
+    "https://myportal.com" : {
+
+    },
+    "If there is a way to generate an extra $3800 dollar at month, would you be interested?" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si hubiera una forma de generar unos $3800 dólares al mes, le interesaría saver de que se trata?"
+          }
+        }
+      }
+    },
+    "Invalid Format" : {
+
+    },
+    "Last Name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apellido"
+          }
+        }
+      }
+    },
+    "List" : {
+
+    },
+    "Locating Prospect Address..." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localizando Prospectos"
+          }
+        }
+      }
+    },
+    "Locating..." : {
+
+    },
+    "Logo" : {
+
+    },
+    "Map" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mapa"
+          }
+        }
+      }
+    },
+    "My Biz" : {
+
+    },
+    "My Shop" : {
+
+    },
+    "No Image Selected" : {
+
+    },
+    "No Logo Uploaded" : {
+
+    },
+    "No Map Data" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Datos De Mapa"
+          }
+        }
+      }
+    },
+    "No Products Added" : {
+
+    },
+    "Notes" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notas"
+          }
+        }
+      }
+    },
+    "Number" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numero"
+          }
+        }
+      }
+    },
+    "Payment" : {
+
+    },
+    "Percent Earning" : {
+
+    },
+    "Phone" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Telephono"
+          }
+        }
+      }
+    },
+    "Plan" : {
+
+    },
+    "Portal Link Configuration" : {
+
+    },
+    "PostCode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Area Postal"
+          }
+        }
+      }
+    },
+    "Price" : {
+
+    },
+    "Product Code / SKU" : {
+
+    },
+    "Product Details" : {
+
+    },
+    "Product Image" : {
+
+    },
+    "Product Name" : {
+
+    },
+    "Products" : {
+
+    },
+    "Prospect" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prospectos"
+          }
+        }
+      }
+    },
+    "Prospect Dashboard" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Panel De Prospectos"
+          }
+        }
+      }
+    },
+    "Prospects" : {
+
+    },
+    "Remove Logo" : {
+
+    },
+    "Save" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salvar"
+          }
+        }
+      }
+    },
+    "Save Product" : {
+
+    },
+    "Scan this image to navigate directly to your assigned setup portal." : {
+
+    },
+    "Search prospects..." : {
+
+    },
+    "Select an item" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select an Item"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Selection "
+          }
+        }
+      }
+    },
+    "Select Logo Image" : {
+
+    },
+    "Select Status" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleciona Estado"
+          }
+        }
+      }
+    },
+    "Settings" : {
+
+    },
+    "Start Scanning" : {
+
+    },
+    "State" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estado"
+          }
+        }
+      }
+    },
+    "State Tax" : {
+
+    },
+    "Stop Scanning" : {
+
+    },
+    "Street" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calle"
+          }
+        }
+      }
+    },
+    "Survey" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encuesta"
+          }
+        }
+      }
+    },
+    "Take Photo (Camera)" : {
+
+    },
+    "Tap below to take a photo or browse your gallery." : {
+
+    },
+    "Tap the '+' button above to link a product to %@." : {
+
+    },
+    "Total Balanced" : {
+
+    },
+    "Updating map pins..." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizando pins de mapa"
+          }
+        }
+      }
+    },
+    "Use My Current Location" : {
+
+    },
+    "Version 1.0.0.0" : {
+
+    },
+    "Welcome to Day Prospecting" : {
+
+    },
+    "Your Portal QR Code" : {
+
+    },
+    "Zip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Area Postal"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
