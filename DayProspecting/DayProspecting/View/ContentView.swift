@@ -10,9 +10,10 @@ struct ContentView: View {
     @State private var showSettings = false
     @AppStorage("my_portal_url") private var inputUrl: String = ""
     @State private var isMyshopExpanded = false
-
+    
     @State private var searchText = ""
-
+    @Query private var settings:[SettingsBO]
+    
     private var filteredContacts: [ContactAddress] {
         if searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             return contactAddress
@@ -85,39 +86,16 @@ struct ContentView: View {
 
     // MARK: - Extracted Sub-Expressions
 
+    // MARK: - Main List View Block
     @ViewBuilder
     private var prospectListView: some View {
         List {
             ForEach(filteredContacts) { contact in
                 NavigationLink {
-                    ProspectForm(contactAddress: contact)
+                    ProspectForm(contactAddress: contact, settings: settings.first ?? SettingsBO.emptySettingsBO )
                 } label: {
-                    VStack(alignment: .leading, spacing: 4) {
-                        HStack(spacing: 8) {
-                            Text("\(contact.firstName) \(contact.lastName)")
-                                .fontWeight(.medium)
-                                .minimumScaleFactor(0.8)
-                            
-                            Spacer()
-
-                           HStack(spacing: 8) {
-                                Image(systemName: "list.bullet")
-                                    .opacity(contact.list == true ? 1.0 : 0.2)
-                                Image(systemName: "person")
-                                    .opacity(contact.contact == true ? 1.0 : 0.2)
-                                Image(systemName: "calendar")
-                                    .opacity(contact.plan == true ? 1.0 : 0.2)
-                                Image(systemName: "arrow.clockwise")
-                                    .opacity(contact.followup == true ? 1.0 : 0.2)
-                            }
-                            .font(.caption)
-                        }
-
-                        Text("Contacted on: \(contact.dateContacted)")
-                            .font(.caption2)
-                            .foregroundColor(.secondary)
-                    }
-                    .padding(.vertical, 8)
+                    // 💡 FIX: The row layout is now isolated to speed up compilation
+                    prospectRow(for: contact)
                 }
                 .listRowSeparator(.hidden)
                 .listRowInsets(EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12))
@@ -131,31 +109,68 @@ struct ContentView: View {
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
         .background {
-            ZStack {
-                Image("bgimage1")
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea()
-
-                Image("managementCycle")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 220, maxHeight: 220)
-                    .opacity(0.2)
-            }
+            listBackgroundView // 💡 FIX: Background layers isolated into a sub-expression
         }
         #if os(macOS)
             .navigationSplitViewColumnWidth(min: 180, ideal: 200)
         #else
             .navigationDestination(isPresented: $showProspectForm) {
-                ProspectForm()
+                ProspectForm(contactAddress: contactAddress.first ?? ContactAddress.emptyContactAddress,  settings: settings.first ?? SettingsBO.emptySettingsBO )
             }
             .navigationDestination(isPresented: $showSettings) {
                 SettingsView()
             }
         #endif
-        // 🛠️ REMOVED toolbar modifier from here to attach it directly inside the main body navigation view context instead.
     }
+
+    // MARK: - Extracted Sub-Expressions (The Fixes)
+
+    @ViewBuilder
+    private func prospectRow(for contact: ContactAddress) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack(spacing: 8) {
+                Text("\(contact.firstName) \(contact.lastName)")
+                    .fontWeight(.medium)
+                    .minimumScaleFactor(0.8)
+                
+                Spacer()
+
+                HStack(spacing: 8) {
+                    Image(systemName: "list.bullet")
+                        .opacity(contact.list == true ? 1.0 : 0.2)
+                    Image(systemName: "person")
+                        .opacity(contact.contact == true ? 1.0 : 0.2)
+                    Image(systemName: "calendar")
+                        .opacity(contact.plan == true ? 1.0 : 0.2)
+                    Image(systemName: "arrow.clockwise")
+                        .opacity(contact.followup == true ? 1.0 : 0.2)
+                }
+                .font(.caption)
+            }
+
+            Text("Contacted on: \(contact.dateContacted)")
+                .font(.caption2)
+                .foregroundColor(.secondary)
+        }
+        .padding(.vertical, 8)
+    }
+
+    @ViewBuilder
+    private var listBackgroundView: some View {
+        ZStack {
+            Image("bgimage1")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+
+            Image("managementCycle")
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: 220, maxHeight: 220)
+                .opacity(0.2)
+        }
+    }
+
 
     
     
@@ -204,5 +219,40 @@ struct ContentView: View {
         }
     }
     
-    private var isMapDisabled: Bool { false }
+    private var isMapDisabled: Bool {
+            // Define your safety logic flag here (e.g., if contacts are empty)
+            return contactAddress.isEmpty
+        }
+}
+#Preview {
+    // 💡 FIX 2: Create a functional context container layout mock environment
+    let container = try! ModelContainer(
+        for: ContactAddress.self,
+        configurations: ModelConfiguration(isStoredInMemoryOnly: true)
+    )
+    
+    let mockContact = ContactAddress(
+        firstName: "Domingo",
+        lastName: "Hilario",
+        communityName: "Downtown",
+        number: "1600",
+        street: "Pennsylvania Avenue NW",
+        postCode: "20500",
+        city: "Washington",
+        state: "DC",
+        phoneNumber: "555-0199",
+        residenceName: "White House",
+        notes: "Test prospect location pin validation rules.",
+        appartmentNumber: "Apt 1",
+        list: false,
+        contact: false,
+        plan: false,
+        followup: false
+    )
+    
+    container.mainContext.insert(mockContact)
+    
+    // 💡 FIX 3: Instantiated ProspectDashboardView directly instead of the structural item row model
+    return ContentView()
+        .modelContainer(container)
 }

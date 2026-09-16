@@ -4,6 +4,9 @@
     "" : {
 
     },
+    "%" : {
+
+    },
     "%@" : {
 
     },
@@ -31,6 +34,9 @@
 
     },
     "$" : {
+
+    },
+    "Accounting Values" : {
 
     },
     "Action" : {
@@ -155,6 +161,12 @@
         }
       }
     },
+    "County" : {
+
+    },
+    "County Tax" : {
+
+    },
     "Dark Mode" : {
 
     },
@@ -191,7 +203,13 @@
         }
       }
     },
+    "Earnings" : {
+
+    },
     "Edit Product for %@" : {
+
+    },
+    "Enter internal records, payment agreements, or milestones..." : {
 
     },
     "Enter or locate your address" : {
@@ -323,6 +341,12 @@
           }
         }
       }
+    },
+    "Payment" : {
+
+    },
+    "Percent Earning" : {
+
     },
     "Phone" : {
       "extractionState" : "manual",
@@ -462,6 +486,9 @@
         }
       }
     },
+    "State Tax" : {
+
+    },
     "Stop Scanning" : {
 
     },
@@ -493,6 +520,9 @@
 
     },
     "Tap the '+' button above to link a product to %@." : {
+
+    },
+    "Total Balanced" : {
 
     },
     "Updating map pins..." : {

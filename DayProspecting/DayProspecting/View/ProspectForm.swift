@@ -13,6 +13,7 @@ struct ProspectForm: View {
     
     // 💡 FIX 1: Removed inline initialization to support direct model tracking passes
     @State var contactAddress: ContactAddress
+    @State var settingsBo: SettingsBO
     
     @State private var selectedDecision: Decision = .NoResponse
     @StateObject private var locationManager = LocationManager()
@@ -22,8 +23,9 @@ struct ProspectForm: View {
     @Environment(\.dismiss) private var dismiss
     
     // 💡 FIX 2: Custom initializer lets you view an existing contact OR cleanly seed a new one
-    init(contactAddress: ContactAddress? = nil) {
+    init(contactAddress: ContactAddress? = nil, settings: SettingsBO) {
         _contactAddress = State(initialValue: contactAddress ?? ContactAddress.emptyContactAddress)
+        _settingsBo = State(initialValue: settings)
     }
     
     var body: some View {
@@ -48,7 +50,7 @@ struct ProspectForm: View {
             
             Tab("Products", systemImage: "cube.box", value: 3) {
                NavigationView{
-                    ListaDeProductos(prospect: contactAddress)
+                    ListaDeProductos(prospect: contactAddress, settings: settingsBo)
                 } .navigationViewStyle(.stack)
             }
             .disabled(contactAddress.firstName.isEmpty)
@@ -227,7 +229,10 @@ struct ProspectForm: View {
     let mockContact = ContactAddress.emptyContactAddress
     container.mainContext.insert(mockContact)
     
-    return ProspectForm(contactAddress: mockContact)
+    let mockSettings = SettingsBO.emptySettingsBO
+    container.mainContext.insert(mockSettings)
+
+    return ProspectForm(contactAddress: mockContact, settings: mockSettings)
         .modelContainer(container)
 }
 
@@ -263,27 +268,11 @@ struct ProspectForm: View {
     
     // 3. Insert the mock contact object directly into our active canvas memory store
     container.mainContext.insert(mockContact)
+    let mockSettings = SettingsBO.emptySettingsBO
+    container.mainContext.insert(mockSettings)
     
-    return ProspectForm(contactAddress: mockContact)
+    return ProspectForm(contactAddress: mockContact, settings: mockSettings)
            .modelContainer(container)
 }
 
-struct TextInputField: View {
-    var title: String
-    @Binding var text: String
-    init(_ title: String, text: Binding<String>) {
-        self.title = title
-        self._text = text
-    }
-    var body: some View {
-        VStack(alignment: .leading) {
-            if !text.isEmpty {
-                Text(title)
-                    .font(.caption)
-                    .foregroundColor(.accentColor)
-            }
-            TextField(title, text: $text)
 
-        }.animation(Animation.easeInOut, value: text)
-    }
-}

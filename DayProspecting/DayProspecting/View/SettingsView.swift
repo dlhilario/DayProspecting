@@ -17,6 +17,9 @@ struct SettingsView: View {
     @AppStorage("is_dark_mode") private var isDarkMode: Bool = false
     @AppStorage("my_portal_url") private var inputUrl: String = ""
     @AppStorage("app_logo_base64") private var logoBase64: String = ""
+    @AppStorage("setting_stateTax") private var setting_stateTax: Double = 6.0
+    @AppStorage("setting_countyTax") private var setting_countyTax: Double = 1.0
+    @AppStorage("setting_percentEarning") private var setting_percentEarning: Double = 30.0
     
     @State private var pickedItem: PhotosPickerItem? = nil
 
@@ -132,6 +135,89 @@ struct SettingsView: View {
                 }
             }
 
+            Section(header: Text("Accounting Values")) {
+                VStack(spacing: 16) {
+                    // Row 1: State Tax
+                    HStack(spacing: 12) {
+                        Image(systemName: "percent")
+                            .foregroundColor(.blue)
+                            .font(.body)
+                            .frame(width: 24)
+                        
+                        // Editable Input with continuous text alignment
+                        TextField("State Tax", value: $setting_stateTax, format: .number.precision(.fractionLength(2)))
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.leading)
+                        
+                        Spacer()
+                        
+                        Text("State")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(Color.blue.opacity(0.12))
+                            .foregroundColor(.blue)
+                            .clipShape(Capsule())
+                    }
+                    .padding(.vertical, 4)
+                    
+                    Divider() // Clean separator line between values
+                    
+                    // Row 2: County Tax
+                    HStack(spacing: 12) {
+                        Image(systemName: "building.columns.fill")
+                            .foregroundColor(.orange)
+                            .font(.body)
+                            .frame(width: 24)
+                        
+                        TextField("County Tax", value: $setting_countyTax, format: .number.precision(.fractionLength(2)))
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.leading)
+                        
+                        Spacer()
+                        
+                        Text("County")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(Color.orange.opacity(0.12))
+                            .foregroundColor(.orange)
+                            .clipShape(Capsule())
+                    }
+                    .padding(.vertical, 4)
+                    
+                    Divider()
+                    
+                    // Row 3: Percent Earning
+                    HStack(spacing: 12) {
+                        Image(systemName: "banknote.fill")
+                            .foregroundColor(.green)
+                            .font(.body)
+                            .frame(width: 24)
+                        
+                        TextField("Percent Earning", value: $setting_percentEarning, format: .number.precision(.fractionLength(2)))
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.leading)
+                        
+                        Spacer()
+                        
+                        Text("Earnings")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(Color.green.opacity(0.12))
+                            .foregroundColor(.green)
+                            .clipShape(Capsule())
+                    }
+                    .padding(.vertical, 4)
+                }
+                .padding(.vertical, 6)
+            }
+
+            
             if !inputUrl.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 Section(header: Text("Your Portal QR Code")) {
                     VStack(alignment: .center, spacing: 16) {
@@ -189,7 +275,10 @@ struct SettingsView: View {
                 logoImageData: binaryImageData,
                 selectedLanguage: appLanguage,
                 isDarkMode: isDarkMode,
-                myPortalUrl: inputUrl
+                myPortalUrl: inputUrl,
+                setting_stateTax: setting_stateTax,
+                setting_countyTax: setting_countyTax,
+                setting_percentEarning: setting_percentEarning
             )
             modelContext.insert(newSettings)
         }

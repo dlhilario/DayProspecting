@@ -59,7 +59,8 @@ extension ContactAddress{
         ContactAddress(firstName: "", lastName: "", communityName: "", number: "", street: "", postCode: "", city: "", state: "", phoneNumber: "", residenceName: "", notes: "", decision: Decision.NoResponse, dateContacted: Date().formatted(date: .numeric, time: .omitted ), appartmentNumber:"", list:false, contact: false, plan: false, followup: false)
     }
     static var emptyProductDetail: ProductDetail{
-        ProductDetail(name: "", code: "", price: 0, image: nil, prospect: ProductDetail.emptyProspect)
+        ProductDetail(name: "", code: "", price: nil, image: nil, prospect: ProductDetail.emptyProspect,paidAmount: nil,totalBalance:  nil, stateTax: nil, countyTax: nil, percentErnings: nil, notes: "")
+      
     }
     var fullAddressString: String{
         "\(number) \(street) \(city) \(state) \(postCode)"

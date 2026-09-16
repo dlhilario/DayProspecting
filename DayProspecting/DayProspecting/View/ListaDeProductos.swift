@@ -18,6 +18,7 @@ import SwiftUI
 struct ListaDeProductos: View {
     @Environment(\.modelContext) private var modelContext
     let prospect: ContactAddress
+    let settingsBo: SettingsBO
     @Query(sort: \ProductDetail.CreatedDate, order: .forward)  private var products: [ProductDetail]
 
     @State private var selectedProduct: ProductDetail? = nil
@@ -37,9 +38,9 @@ struct ListaDeProductos: View {
         }
     }
     
-    init(prospect: ContactAddress) {
+    init(prospect: ContactAddress, settings: SettingsBO) {
         self.prospect = prospect
-        
+        self.settingsBo = settings
         let targetPersistentID = prospect.persistentModelID
         
         let predicate = #Predicate<ProductDetail> { product in
@@ -83,13 +84,14 @@ struct ListaDeProductos: View {
            NavigationStack {
                 AddProductView(
                     productToEdit: ProductDetail.emptyProductDetail,
-                    prospect: prospect
+                    prospect: prospect,
+                    settings: settingsBo
                 )
             }
         }
         .sheet(item: $selectedProduct) { product in
             NavigationView {
-                AddProductView(productToEdit: product, prospect: prospect)
+                AddProductView(productToEdit: product, prospect: prospect, settings: settingsBo)
             }
         }
         .toolbar {
@@ -140,7 +142,7 @@ struct ListaDeProductos: View {
                     Spacer()
                     
                     // 💡 FIX 2: Safe type handling for price layout evaluation
-                    Text(formattedPrice(product.price ?? 0))
+                    Text(formattedPrice(product.totalBalance ?? 0))
                         .font(.headline)
                         .layoutPriority(1)
                         .fontWeight(.semibold)
@@ -207,27 +209,50 @@ struct ListaDeProductos: View {
     )
     container.mainContext.insert(mockProspect)
     
-    let product1 = ProductDetail(
-        name: "Premium Coffee Blend",
-        code: "COF-1022",
-        price: 18.89,
+    let product1  = ProductDetail(
+        name: "Sample Coffee",
+        code: "COF-0911",
+        price: 40.99,
         image: UIImage(systemName: "cup.and.saucer.fill"),
-        prospect: mockProspect
+        prospect: mockProspect,
+        dateContacted: "08/01/2026",
+        paidAmount: 0.0,
+        totalBalance: 0.0,
+        stateTax:6.0,
+        countyTax: 1.0,
+        notes: "Test"
     )
     
-    let product2 = ProductDetail(
-        name: "Organic Espresso Beans",
-        code: "ESP-4491",
-        price: 24.50,
-        image: UIImage(systemName: "bean.fill"),
-        prospect: mockProspect
+    let product2  = ProductDetail(
+        name: "Sample Coffee Blend",
+        code: "COF-0912",
+        price: 14.99,
+        image: UIImage(systemName: "cup.and.saucer.fill"),
+        prospect: mockProspect,
+        dateContacted: "08/01/2026",
+        paidAmount: 0.0,
+        totalBalance: 0.0,
+        stateTax:6.0,
+        countyTax: 1.0,
+        notes: "Test"
+    )
+    
+    let mockSetting = SettingsBO(
+        logoImageData: nil,
+        selectedLanguage: "eng",
+        isDarkMode: true,
+        myPortalUrl: "http://www.amway.com/myshop/domingohilario",
+        setting_stateTax: 6.0,
+        setting_countyTax: 1.0,
+        setting_percentEarning: 30.0
     )
     
     container.mainContext.insert(product1)
     container.mainContext.insert(product2)
+    container.mainContext.insert(mockSetting)
     
-  return  NavigationStack {
-        ListaDeProductos(prospect: mockProspect)
+    return NavigationStack {
+        ListaDeProductos(prospect: mockProspect, settings: mockSetting)
     }
     .modelContainer(container)
 }
