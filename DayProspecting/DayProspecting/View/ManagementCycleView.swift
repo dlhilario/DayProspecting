@@ -112,17 +112,18 @@ struct ArrowWedgeShape: Shape {
         let midTipRadius = (tipOuterRadius + tipInnerRadius) / 2
         
         let tipPoint = CGPoint(
-            x: center.x + midTipRadius * cos(endRad),
-            y: center.y + midTipRadius * sin(endRad)
+            x: CGFloat(center.x) + CGFloat(midTipRadius) * cos(CGFloat(endRad)),
+            y: CGFloat(center.y) + CGFloat(midTipRadius) * sin(CGFloat(endRad))
         )
         let outerFlayerPoint = CGPoint(
-            x: center.x + tipOuterRadius * cos(mainEndRad),
-            y: center.y + tipOuterRadius * sin(mainEndRad)
+            x: CGFloat(center.x) + CGFloat(tipOuterRadius) * cos(CGFloat(mainEndRad)),
+            y: CGFloat(center.y) + CGFloat(tipOuterRadius) * sin(CGFloat(mainEndRad))
         )
         let innerFlayerPoint = CGPoint(
-            x: center.x + tipInnerRadius * cos(mainEndRad),
-            y: center.y + tipInnerRadius * sin(mainEndRad)
+            x: CGFloat(center.x) + CGFloat(tipInnerRadius) * cos(CGFloat(mainEndRad)),
+            y: CGFloat(center.y) + CGFloat(tipInnerRadius) * sin(CGFloat(mainEndRad))
         )
+
         
         path.addLine(to: outerFlayerPoint)
         path.addLine(to: tipPoint)
